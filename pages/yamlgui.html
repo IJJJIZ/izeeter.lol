@@ -17,6 +17,7 @@
     <p>so this actually took a minute to figure out, well not necessarily just what im using it for. <br>
     so in my server there are skills right so i wanted to make a gui that kind of looks like a skill tree</p>
     <iframe src="https://drive.google.com/file/d/1Bp1196iq5tTSSgvv8m9YC8f8wMM4NUqT/preview" width="600" height="400" allowfullscreen></iframe>
+    <p>this is what the yaml file looks like</p>
     <pre><code>
     skills:
         skill_1:
@@ -37,6 +38,51 @@
     if i need to. </p>
     <p>okay so if a skill doesn't have a prerequisite we can assume it's a "root" skill and you then place it in the appropriate place according to it's level. technically skills that arent root skills <br>
     dont need a level, but for sake of consistency (i dont want to change my code) i keep it in. we then loop through the root skills and place their sort of "child" skills in row 2 underneath them, we then loop <br>
-    those skills and draw the manhattan line to and from the skills. honestly wasn't too bad.</p>
+    those skills and draw the manhattan line to and from the skills. honestly wasn't too bad. what sucked was detecting the direction. this sucked because it required me to go back to my manhattan line function, <br>
+    and add a new return list called {_directions::*} to track the directions. see the way the function works is it just gets the slots of the line, and then it returns the slots in {_line::*} and the directions in {_directions::*} <br>
+    this sucks cuz i have to differentiate if it's a direction or a slot after returning the function because for SOME FUCKING REASON SKRIPT DOESNT ALLOW YOU TO RETURN INDICES??? <br>
+    here's a fucking example of this shit.</p>
+    <code><pre>
+    function get_some_data() :: objects:
+        set {_fart} to "fart"
+        add {_fart} to {_fartinglist::*}
+        set {_fartinglist::%{_fart}%::fartamount} to 10
+        return {_fartinglist::*}
+    
+    command /farts:
+        trigger:
+            set {_data::*} to get_some_data()
+            loop {_data::*}:
+                broadcast "object (%loop-value%): fart amount: %{_data::%loop-value%::fartamount}%"
+    </pre></code>
+    <img src="../imgs/fartnotwork.png" alt="farts not working man">
+    <p>????? why? yeah so skript just doesn't let you do that. so basically this function makes a fartinglist and then adds a value called fart. and then inside the list of fart we set the value to 10 <br>
+    but the fart value returns as nothing!!! because you can't return it. super cooooooooool.</p>
+    <p>anyways</p>
+    <p>when you click on a skill it shows you a new page with that skills childs and then so on so forth, allowing me to easily add skils into a gui without hardcoding it in. i like this a lot, i plan on using this method
+    <br> of gui generation as often as possible. makes it easier in the long run.</p>
+    <p>back to the directions, because not only am i tracking the direction that the line is going in, but im also detecting corners. BY THE WAY, all those icons and everything are placeholders <br>
+    the way the chest gui looks right now is not the final form, it's purely just a proof of concept. eventually it's going to be using a resource pack, but in order for the corners to show up properly i need to be able to track <br>
+    what kind of corner it is. well how the fuck does one do that?</p>
+    <p>i had no idea.</p>
+    <p>i really had no clue how i was gonna do this. see getting directions was easy because in the manhattan line function everytime it'd choose a slot i'd get what direction it was going. but corners?? <br>
+    so my first idea was to expand upon that and make it so that if it intersects a line, it'll add that direction to that line. however, i realized several issues with this</p>
+    <ul>
+        <li>if i have several manhattan lines being created at once, this wouldnt really be that great</li>
+        <li>this really restrictions this single function down to like a single use case.</li>
+    </ul>
+    <p>so i didnt want to do it.</p>
+    <p>so instead while we're actually drawing the line in the gui, not just getting the slots, we do this.</p>
+    <pre><code>
+        # Detect corners by checking the direction change between three consecutive points
+    loop {_line::*}:
+        if loop-iteration > 2:
+            set {_prevDirection} to {_linedirections::%(loop-iteration) - 1%}
+            set {_currentDirection} to {_linedirections::%loop-iteration%}
+            # Check if a corner is formed (change in direction)
+            if {_prevDirection} is not {_currentDirection}:
+                # Corner detected
+    </code></pre>
+    <p>this took me way too long to figure out admittedly, i felt really stupid when i did figure it out. anyways it works now and i can have a sort of a cool looking gui</p>
 </body>
 </html>

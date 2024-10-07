@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>le yaml</title>
+</head>
+<body>
+    <header>
+        <h1>izeeter's domain</h1>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="pages.html">view all pages</a></li>
+        </ul> 
+    </header>
+    <h1>creating chest gui from yaml</h1>
+    <p>so this actually took a minute to figure out, well not necessarily just what im using it for. <br>
+    so in my server there are skills right so i wanted to make a gui that kind of looks like a skill tree</p>
+    <iframe src="https://izeeter.lol/Og6NxX" width="600" height="400"></iframe>
+    <pre><code>
+    skills:
+        skill_1:
+          skill_name: "fart stacker"
+          level: 1
+          description: "Every 3rd attack stacks farts"
+          prerequisites: []
+      
+        skill_2:
+          skill_name: "farting shit"
+          level: 2
+          description: "consume 3 farts to shit"
+          prerequisites:
+            - "fart stacker"
+    </code></pre>
+    <p>Alright. so the best thing about chest guis is that it's just a 2D grid, meaning we can convert the slot number to a coordinate and then a coordinate to a slot number. <br>
+    but why would you do that? well basically if you have coordinates you can use any algorithm that uses coordinates. fun! this allows me to use the manhattan line algorithm, or other ones<br>
+    if i need to. </p>
+    <p>okay so if a skill doesn't have a prerequisite we can assume it's a "root" skill and you then place it in the appropriate place according to it's level. technically skills that arent root skills <br>
+    dont need a level, but for sake of consistency (i dont want to change my code) i keep it in. we then loop through the root skills and place their sort of "child" skills in row 2 underneath them, we then loop <br>
+    those skills and draw the manhattan line to and from the skills. honestly wasn't too bad.</p>
+</body>
+</html>

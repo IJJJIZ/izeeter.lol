@@ -1,0 +1,100 @@
+body, h1, p, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana;  /* Sets a default font */
+    background-color:  	#000000;       /* Light grey background */
+    color: #ffffff;                    /* Dark text color */
+    padding: 150px;                   /* Padding around the body */
+    display: flex; 
+    justify-content: center;       /* Center horizontally */
+    align-items: center;           /* Center vertically */
+}
+
+h1 {
+    color: #ffffff ;                  /* Change heading color */ 
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.frame {
+    background-color: #A7BEAE;
+    width: 80%;                    /* Width of the box (adjust as needed) */
+    max-width: 800px;              /* Maximum width of the box */
+    padding: 40px;                 /* Space inside the box */
+    border-radius: 10px;
+}
+
+footer {
+    padding-top: 5%;
+    font-size: 10px;
+}
+
+nav {
+    background-color: #7f9285;
+    width: 30%;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;       /* Default link color (white) */
+    text-decoration: none; /* Remove underline from links */
+    padding: 5px;         /* Space around the links */
+    display: inline-block; /* Make the links respect padding */
+}
+
+dl {
+    background-color: #7f9285;  /* Background color for the dl container */
+    width: 30%;                 /* Container width */
+    border-radius: 10px;        /* Rounded corners */
+    padding: 25px;              /* Padding inside the box */
+    text-align: left;
+}
+
+/* Link Styling Inside <dl> */
+dl a {
+    color: #ffffff;             /* Set link color to white */
+    text-decoration: none;      /* Remove underline */
+}
+
+dl dt {
+    text-decoration: underline; /* Adds underline to specific text elements */
+    margin-top: 20px;
+}
+
+dl dd::before {
+    content: "• ";               /* Dot character before each term */
+    color: #ffffff;              /* Color of the dot */
+    font-size: 16px;             /* Size of the dot */
+}
+
+pre {
+    background-color: #3c3f3d;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 2px solid;
+    overflow-x: auto;
+}
+code {
+    font-family: monospace;
+    font-size: 14px; 
+}
+iframe {
+    background-color: #3c3f3d;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+img {
+    background-color: #3c3f3d;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0;
+}
+

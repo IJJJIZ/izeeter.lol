@@ -13,14 +13,16 @@
     <meta name="twitter:title" content="bro dont go here">
     <meta name="twitter:description" content="like actually dont lol its nothing brazy">
     <meta name="twitter:image" content="https://izeeter.lol/x0Cf0A">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+    <div class="frame">
     <header>
         <h1>izeeter's domain</h1>
-        <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="pages.html">view all pages</a></li>
-        </ul> 
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="pages.html">view all pages</a>
+        </nav>
     </header>
     <h1>creating chest gui from yaml</h1>
     <p>so this actually took a minute to figure out, well not necessarily just what im using it for. <br>
@@ -62,8 +64,7 @@
         trigger:
             set {_data::*} to get_some_data()
             loop {_data::*}:
-                broadcast "object (%loop-value%): fart amount: %{_data::%loop-value%::fartamount}%"
-    </pre></code>
+                broadcast "object (%loop-value%): fart amount: %{_data::%loop-value%::fartamount}%"</pre></code>
     <img src="../imgs/fartnotwork.png" alt="farts not working man">
     <p>????? why? yeah so skript just doesn't let you do that. so basically this function makes a fartinglist and then adds a value called fart. and then inside the list of fart we set the value to 10 <br>
     but the fart value returns as nothing!!! because you can't return it. super cooooooooool.</p>
@@ -93,5 +94,9 @@
                 # Corner detected
     </code></pre>
     <p>this took me way too long to figure out admittedly, i felt really stupid when i did figure it out. anyways it works now and i can have a sort of a cool looking gui</p>
+    <footer>
+        <p>&copy; 2024 izeeter.lol. All Rights Reserved.</p>
+    </footer>
+    </div>
 </body>
 </html>

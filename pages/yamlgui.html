@@ -14,6 +14,7 @@
     <meta name="twitter:description" content="like actually dont lol its nothing brazy">
     <meta name="twitter:image" content="https://izeeter.lol/x0Cf0A">
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/copyClipboard.js" defer></script>
 </head>
 <body>
     <div class="frame">
@@ -53,7 +54,7 @@
     and add a new return list called {_directions::*} to track the directions. see the way the function works is it just gets the slots of the line, and then it returns the slots in {_line::*} and the directions in {_directions::*} <br>
     this sucks cuz i have to differentiate if it's a direction or a slot after returning the function because for SOME FUCKING REASON SKRIPT DOESNT ALLOW YOU TO RETURN INDICES??? <br>
     here's a fucking example of this shit.</p>
-    <code><pre>
+    <pre><code>
     function get_some_data() :: objects:
         set {_fart} to "fart"
         add {_fart} to {_fartinglist::*}
@@ -64,7 +65,8 @@
         trigger:
             set {_data::*} to get_some_data()
             loop {_data::*}:
-                broadcast "object (%loop-value%): fart amount: %{_data::%loop-value%::fartamount}%"</pre></code>
+                broadcast "object (%loop-value%): fart amount: %{_data::%loop-value%::fartamount}%"
+    </code></pre>
     <img src="../imgs/fartnotwork.png" alt="farts not working man">
     <p>????? why? yeah so skript just doesn't let you do that. so basically this function makes a fartinglist and then adds a value called fart. and then inside the list of fart we set the value to 10 <br>
     but the fart value returns as nothing!!! because you can't return it. super cooooooooool.</p>

@@ -75,10 +75,11 @@ dl dd::before {
 pre {
     background-color: #3c3f3d;
     max-width: 100%;
+    max-height: 400px;
     border-radius: 10px;
     margin: 20px 0;
     border: 2px solid;
-    overflow-x: auto;
+    overflow-y: auto;
 }
 code {
     font-family: monospace;
@@ -98,3 +99,29 @@ img {
     margin: 20px 0;
 }
 
+.code-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.copy-button {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background-color: #313436;
+    color: #fff;
+    cursor: pointer;
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.1s;
+}
+
+.copy-button:hover {
+    background-color: #407ba7;
+}
+
+.copy-button:active {
+    background-color: #2e4f73;
+}

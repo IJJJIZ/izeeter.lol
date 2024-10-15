@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finances</title>
+    <meta property="og:title" content="bro dont go here">
+    <meta property="og:description" content="like actually dont lol its nothing brazy">
+    <meta property="og:image" content="https://izeeter.lol/x0Cf0A">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:title" content="bro dont go here">
+    <meta name="twitter:description" content="like actually dont lol its nothing brazy">
+    <meta name="twitter:image" content="https://izeeter.lol/x0Cf0A">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/financialTracker.js" defer></script>
+</head>
+<body>
+    <div class="frame">
+    <header>
+        <h1>izeeter's domain</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="pages.html">view all pages</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>what the hell is this izeeter</h1>
+        <p>well i realized i was kind of just doing this math all the time so i just made it into a simple javascript html site. ye. idk how to password protect webpages yet so... ig you can use this if you want to.</p>
+        <h2>Enter your financial details:</h2>
+
+        <label for="paycheck">Paycheck Amount: </label>
+        <input type="number" id="paycheck" name="paycheck" value="0" min="0"><br>
+
+        <label for="creditCard">Credit Card Amount Owed: </label>
+        <input type="number" id="creditCard" name="creditCard" value="0" min="0"><br>
+
+        <label for="checking">Current Checking Balance: </label>
+        <input type="number" id="checking" name="checking" value="0" min="0"><br>
+
+        <label for="requiredChecking">Required Checking Balance (e.g., for insurance): </label>
+        <input type="number" id="requiredChecking" name="requiredChecking" value="200" min="0"><br>
+
+        <h3>Remaining after credit card and checking requirements: <span id="remaining">0.00</span></h3>
+
+        <div id="savingsContainer">
+            <!-- Savings fields will be added here -->
+        </div>
+
+        <div id="calculatedSavingsContainer">
+            <!-- Calculated savings results will be displayed here -->
+        </div>
+        <hr>
+        <button onclick="addSavingsField()">Add Savings Field</button>
+        <button onclick="removeSavingsField()">Remove Last Savings Field</button>
+        <button onclick="calculateSavings()">Calculate Savings</button>
+        <button onclick="downloadData()">Download Data as .txt</button>
+        <p><br>Press the button below and upload a previously downloaded txt file to use it.</p>
+
+        <input type="file" id="fileUpload" accept=".txt" onchange="loadData(event)"><br>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 izeeter.lol. All Rights Reserved.</p>
+    </footer>
+    </div>
+</body>
+</html>
